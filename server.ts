@@ -1,6 +1,6 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
+import express from "express";
+import bodyParser from "body-parser";
+import cors from "cors";
 const app = express();
 const corsOptions = {
   origin: "http://localhost:8081",
@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // database sync
-const db = require("./app/models")
+import { db } from "./app/models";
 db.sequelize.sync();
 
 // If need to drop table and resync
