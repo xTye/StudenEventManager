@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // database sync
-const db = require("./app/models/index.ts");
+const db = require("./app/models")
 db.sequelize.sync();
 
 // If need to drop table and resync
