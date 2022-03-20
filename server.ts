@@ -10,6 +10,16 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// database sync
+const db = require("./app/models/index.ts");
+db.sequelize.sync();
+
+// If need to drop table and resync
+// db.sequelize.sync({force: true}).then(() => {
+//   console.log('Drop and Resync Database with { force: true }');
+// });
+
 // simple route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to bezkoder application." });
