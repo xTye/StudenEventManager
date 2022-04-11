@@ -33,11 +33,10 @@ export function getJoinsAction(
 ) {
   commit(types.LOADING_JOIN, true);
 
-  return getJoinsAxios(req).then(({ data }) =>
-    commit(types.GET_JOINS, data)
-      .catch((e: any) => console.log(e.message))
-      .finally(() => commit(types.LOADING_JOIN, false))
-  );
+  return getJoinsAxios(req)
+    .then(({ data }) => commit(types.GET_JOINS, data))
+    .catch((e: any) => console.log(e.message))
+    .finally(() => commit(types.LOADING_JOIN, false));
 }
 
 export function getJoinAction(
@@ -46,11 +45,10 @@ export function getJoinAction(
 ) {
   commit(types.LOADING_JOIN, true);
 
-  return getJoinAxios(req).then(({ data }) =>
-    commit(types.GET_JOIN, data)
-      .catch((e: any) => console.log(e.message))
-      .finally(() => commit(types.LOADING_JOIN, false))
-  );
+  return getJoinAxios(req)
+    .then(({ data }) => commit(types.GET_JOIN, data))
+    .catch((e: any) => console.log(e.message))
+    .finally(() => commit(types.LOADING_JOIN, false));
 }
 
 export function updateJoinAction(

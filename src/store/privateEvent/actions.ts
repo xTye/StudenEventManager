@@ -33,11 +33,10 @@ export function getPrivateEventsAction(
 ) {
   commit(types.LOADING_PRIVATEEVENT, true);
 
-  return getPrivateEventsAxios(req).then(({ data }) =>
-    commit(types.GET_PRIVATEEVENTS, data)
-      .catch((e: any) => console.log(e.message))
-      .finally(() => commit(types.LOADING_PRIVATEEVENT, false))
-  );
+  return getPrivateEventsAxios(req)
+    .then(({ data }) => commit(types.GET_PRIVATEEVENTS, data))
+    .catch((e: any) => console.log(e.message))
+    .finally(() => commit(types.LOADING_PRIVATEEVENT, false));
 }
 
 export function getPrivateEventAction(
@@ -46,11 +45,10 @@ export function getPrivateEventAction(
 ) {
   commit(types.LOADING_PRIVATEEVENT, true);
 
-  return getPrivateEventAxios(req).then(({ data }) =>
-    commit(types.GET_PRIVATEEVENT, data)
-      .catch((e: any) => console.log(e.message))
-      .finally(() => commit(types.LOADING_PRIVATEEVENT, false))
-  );
+  return getPrivateEventAxios(req)
+    .then(({ data }) => commit(types.GET_PRIVATEEVENT, data))
+    .catch((e: any) => console.log(e.message))
+    .finally(() => commit(types.LOADING_PRIVATEEVENT, false));
 }
 
 export function updatePrivateEventAction(

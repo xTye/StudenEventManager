@@ -33,11 +33,10 @@ export function getRsosAction(
 ) {
   commit(types.LOADING_RSO, true);
 
-  return getRsosAxios(req).then(({ data }) =>
-    commit(types.GET_RSOS, data)
-      .catch((e: any) => console.log(e.message))
-      .finally(() => commit(types.LOADING_RSO, false))
-  );
+  return getRsosAxios(req)
+    .then(({ data }) => commit(types.GET_RSOS, data))
+    .catch((e: any) => console.log(e.message))
+    .finally(() => commit(types.LOADING_RSO, false));
 }
 
 export function getRsoAction(
@@ -46,11 +45,10 @@ export function getRsoAction(
 ) {
   commit(types.LOADING_RSO, true);
 
-  return getRsoAxios(req).then(({ data }) =>
-    commit(types.GET_RSO, data)
-      .catch((e: any) => console.log(e.message))
-      .finally(() => commit(types.LOADING_RSO, false))
-  );
+  return getRsoAxios(req)
+    .then(({ data }) => commit(types.GET_RSO, data))
+    .catch((e: any) => console.log(e.message))
+    .finally(() => commit(types.LOADING_RSO, false));
 }
 
 export function updateRsoAction(

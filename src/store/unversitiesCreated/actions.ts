@@ -48,11 +48,10 @@ export function getUniversitiesCreatedAction(
 ) {
   commit(types.LOADING_UNIVERSITIESCREATED, true);
 
-  return getUniversitiesCreatedAxios(req).then(({ data }) =>
-    commit(types.GET_UNIVERSITIESCREATED, data)
-      .catch((e: any) => console.log(e.message))
-      .finally(() => commit(types.LOADING_UNIVERSITIESCREATED, false))
-  );
+  return getUniversitiesCreatedAxios(req)
+    .then(({ data }) => commit(types.GET_UNIVERSITIESCREATED, data))
+    .catch((e: any) => console.log(e.message))
+    .finally(() => commit(types.LOADING_UNIVERSITIESCREATED, false));
 }
 
 export function updateUniversitiesCreatedAction(

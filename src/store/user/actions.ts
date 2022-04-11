@@ -25,21 +25,19 @@ export function addUserAction(
 export function getUsersAction({ commit }: { commit: any }) {
   commit(types.LOADING_USER, true);
 
-  return getUsersAxios().then(({ data }) =>
-    commit(types.GET_USERS, data)
-      .catch((e: any) => console.log(e.message))
-      .finally(() => commit(types.LOADING_USER, false))
-  );
+  return getUsersAxios()
+    .then(({ data }) => commit(types.GET_USERS, data))
+    .catch((e: any) => console.log(e.message))
+    .finally(() => commit(types.LOADING_USER, false));
 }
 
 export function getUserAction({ commit }: { commit: any }, search: string) {
   commit(types.LOADING_USER, true);
 
-  return getUserAxios(search).then(({ data }) =>
-    commit(types.GET_USERS, data)
-      .catch((e: any) => console.log(e.message))
-      .finally(() => commit(types.LOADING_USER, false))
-  );
+  return getUserAxios(search)
+    .then(({ data }) => commit(types.GET_USERS, data))
+    .catch((e: any) => console.log(e.message))
+    .finally(() => commit(types.LOADING_USER, false));
 }
 
 export function removeUserAction({ commit }: { commit: any }, payload: string) {

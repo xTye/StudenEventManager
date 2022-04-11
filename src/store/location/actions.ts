@@ -33,11 +33,10 @@ export function getLocationsAction(
 ) {
   commit(types.LOADING_LOCATION, true);
 
-  return getLocationsAxios(req).then(({ data }) =>
-    commit(types.GET_LOCATIONS, data)
-      .catch((e: any) => console.log(e.message))
-      .finally(() => commit(types.LOADING_LOCATION, false))
-  );
+  return getLocationsAxios(req)
+    .then(({ data }) => commit(types.GET_LOCATIONS, data))
+    .catch((e: any) => console.log(e.message))
+    .finally(() => commit(types.LOADING_LOCATION, false));
 }
 
 export function getLocationAction(
@@ -46,11 +45,10 @@ export function getLocationAction(
 ) {
   commit(types.LOADING_LOCATION, true);
 
-  return getLocationAxios(req).then(({ data }) =>
-    commit(types.GET_LOCATION, data)
-      .catch((e: any) => console.log(e.message))
-      .finally(() => commit(types.LOADING_LOCATION, false))
-  );
+  return getLocationAxios(req)
+    .then(({ data }) => commit(types.GET_LOCATION, data))
+    .catch((e: any) => console.log(e.message))
+    .finally(() => commit(types.LOADING_LOCATION, false));
 }
 
 export function updateLocationAction(

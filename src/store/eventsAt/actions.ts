@@ -33,11 +33,10 @@ export function getEventsAtsAction(
 ) {
   commit(types.LOADING_EVENTSAT, true);
 
-  return getEventsAtsAxios(req).then(({ data }) =>
-    commit(types.GET_EVENTSATS, data)
-      .catch((e: any) => console.log(e.message))
-      .finally(() => commit(types.LOADING_EVENTSAT, false))
-  );
+  return getEventsAtsAxios(req)
+    .then(({ data }) => commit(types.GET_EVENTSATS, data))
+    .catch((e: any) => console.log(e.message))
+    .finally(() => commit(types.LOADING_EVENTSAT, false));
 }
 
 export function getEventsAtAction(
@@ -46,11 +45,10 @@ export function getEventsAtAction(
 ) {
   commit(types.LOADING_EVENTSAT, true);
 
-  return getEventsAtAxios(req).then(({ data }) =>
-    commit(types.GET_EVENTSAT, data)
-      .catch((e: any) => console.log(e.message))
-      .finally(() => commit(types.LOADING_EVENTSAT, false))
-  );
+  return getEventsAtAxios(req)
+    .then(({ data }) => commit(types.GET_EVENTSAT, data))
+    .catch((e: any) => console.log(e.message))
+    .finally(() => commit(types.LOADING_EVENTSAT, false));
 }
 
 export function updateEventsAtAction(

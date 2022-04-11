@@ -33,11 +33,10 @@ export function getRsoEventsAction(
 ) {
   commit(types.LOADING_RSOEVENT, true);
 
-  return getRsoEventsAxios(req).then(({ data }) =>
-    commit(types.GET_RSOEVENTS, data)
-      .catch((e: any) => console.log(e.message))
-      .finally(() => commit(types.LOADING_RSOEVENT, false))
-  );
+  return getRsoEventsAxios(req)
+    .then(({ data }) => commit(types.GET_RSOEVENTS, data))
+    .catch((e: any) => console.log(e.message))
+    .finally(() => commit(types.LOADING_RSOEVENT, false));
 }
 
 export function getRsoEventAction(
@@ -46,11 +45,10 @@ export function getRsoEventAction(
 ) {
   commit(types.LOADING_RSOEVENT, true);
 
-  return getRsoEventAxios(req).then(({ data }) =>
-    commit(types.GET_RSOEVENT, data)
-      .catch((e: any) => console.log(e.message))
-      .finally(() => commit(types.LOADING_RSOEVENT, false))
-  );
+  return getRsoEventAxios(req)
+    .then(({ data }) => commit(types.GET_RSOEVENT, data))
+    .catch((e: any) => console.log(e.message))
+    .finally(() => commit(types.LOADING_RSOEVENT, false));
 }
 
 export function updateRsoEventAction(
