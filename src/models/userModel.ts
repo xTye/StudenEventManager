@@ -15,6 +15,7 @@ export type resLoginModel = {
 export type reqRegisterModel = {
   userid: string;
   password: string;
+  secret: string;
 };
 export type resRegisterModel = {
   message: string;

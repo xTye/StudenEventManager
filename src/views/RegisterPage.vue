@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col bg-white w-full h-full p-25 text-black">
-    <div class="text-5xl mt-7">Login</div>
+    <div class="text-5xl mt-7">Register</div>
     <div class="flex w-full h-full justify-center items-center text-white">
       <div
         class="flex flex-col items-center justify-start w-3/5 h-4/5 rounded-2xl bg-black"
