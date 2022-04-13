@@ -1,4 +1,4 @@
-import { api, endpoints } from "@/api/axios";
+import api, { endpoints } from "@/api/axios";
 import {
   reqCreatePrivateEventModel,
   reqDeletePrivateEventModel,
@@ -21,8 +21,9 @@ export async function postPrivateEventAxios(req: reqCreatePrivateEventModel) {
 }
 
 export async function getPrivateEventsAxios(req: reqFindAllPrivateEventModel) {
+  const eventid = req ? req.eventid : "";
   return await api.get<resFindAllPrivateEventModel[]>(
-    `${endpoints.privateEvents}/${req.eventid}`
+    `${endpoints.privateEvents}/${eventid}`
   );
 }
 

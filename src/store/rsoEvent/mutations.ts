@@ -5,6 +5,7 @@ import {
   resFindAllRsoEventModel,
   reqUpdateRsoEventModel,
   reqDeleteRsoEventModel,
+  resUpdateRsoEventModel,
 } from "@/models/rsoEventModel";
 import { RsoEventStateType } from "./state";
 
@@ -33,7 +34,7 @@ const mutations = {
 
   [types.UPDATE_RSOEVENT](
     state: RsoEventStateType,
-    res: reqUpdateRsoEventModel
+    res: resUpdateRsoEventModel
   ) {
     state.rsoEvent = res;
   },
@@ -45,6 +46,17 @@ const mutations = {
     state.rsoEvent = {
       eventid: -1,
       rsoid: "",
+      EventsAt: {
+        eventname: "",
+        time: "",
+        date: "",
+        description: "",
+        location: "",
+        category: "",
+        phonenumber: "",
+        emailaddress: "",
+      },
+      Comments: [],
     };
   },
 
@@ -53,6 +65,17 @@ const mutations = {
     state.rsoEvent = {
       eventid: -1,
       rsoid: "",
+      EventsAt: {
+        eventname: "",
+        time: "",
+        date: "",
+        description: "",
+        location: "",
+        category: "",
+        phonenumber: "",
+        emailaddress: "",
+      },
+      Comments: [],
     };
   },
 };

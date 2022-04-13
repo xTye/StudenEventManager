@@ -11,6 +11,17 @@ const state: RsoEventStateType = {
   rsoEvent: {
     eventid: -1,
     rsoid: "",
+    EventsAt: {
+      eventname: "",
+      time: "",
+      date: "",
+      description: "",
+      location: "",
+      category: "",
+      phonenumber: "",
+      emailaddress: "",
+    },
+    Comments: [],
   },
   loading: false,
 };

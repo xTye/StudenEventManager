@@ -7,11 +7,20 @@ export type Getters = {
 };
 
 const getters = {
+  users: (state: UserStateType) => {
+    return state.users;
+  },
   user: (state: UserStateType) => {
     return state.user;
   },
   loading: (state: UserStateType) => {
     return state.loading;
+  },
+  loggedin: (state: UserStateType) => {
+    return state.loggedin;
+  },
+  error: (state: UserStateType) => {
+    return state.error;
   },
 };
 

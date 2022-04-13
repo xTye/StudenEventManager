@@ -1,6 +1,11 @@
+import { CommentModel } from "./commentModel";
+import { EventsAtModel } from "./eventsAtModel";
+
 export type RsoEventModel = {
   eventid: number;
   rsoid: string;
+  EventsAt: EventsAtModel;
+  Comments: CommentModel[];
 };
 
 export type reqCreateRsoEventModel = {
@@ -11,6 +16,8 @@ export type reqCreateRsoEventModel = {
 export type resCreateRsoEventModel = {
   eventid: number;
   rsoid: string;
+  EventsAt: EventsAtModel;
+  Comments: CommentModel[];
 };
 
 export type reqFindAllRsoEventModel = {
@@ -20,6 +27,8 @@ export type reqFindAllRsoEventModel = {
 export type resFindAllRsoEventModel = {
   eventid: number;
   rsoid: string;
+  EventsAt: EventsAtModel;
+  Comments: CommentModel[];
 };
 
 export type reqFindOneRsoEventModel = {
@@ -29,6 +38,8 @@ export type reqFindOneRsoEventModel = {
 export type resFindOneRsoEventModel = {
   eventid: number;
   rsoid: string;
+  EventsAt: EventsAtModel;
+  Comments: CommentModel[];
 };
 
 export type reqUpdateRsoEventModel = {
@@ -37,7 +48,10 @@ export type reqUpdateRsoEventModel = {
 };
 
 export type resUpdateRsoEventModel = {
-  message: string;
+  eventid: number;
+  rsoid: string;
+  EventsAt: EventsAtModel;
+  Comments: CommentModel[];
 };
 
 export type reqDeleteRsoEventModel = {

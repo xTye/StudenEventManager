@@ -9,6 +9,7 @@ import rsoModule from "./rso";
 import rsoEventModule from "./rsoEvent";
 import unversitiesCreatedModule from "./unversitiesCreated";
 import userModule from "./user";
+import createPersistedState from "vuex-persistedstate";
 
 export const store = createStore({
   modules: {
@@ -23,5 +24,12 @@ export const store = createStore({
     rsoEventModule,
     unversitiesCreatedModule,
   },
-  plugins: [createLogger()],
+  plugins: [createLogger(), createPersistedState()],
+
+  // Add clear all for users.
+  actions: {
+    clearAll({ commit }: { commit: any }) {
+      commit([]);
+    },
+  },
 });

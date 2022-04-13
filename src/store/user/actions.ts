@@ -3,83 +3,121 @@ import {
   getUserAxios,
   deleteUserAxios,
   getUsersAxios,
-  postUserAxios,
+  deleteUsersAxios,
   registerUserAxios,
   loginUserAxios,
   putUserAxios,
+  verifyUserAxios,
 } from "@/services/userService";
-import { reqLoginModel, reqRegisterModel, UserModel } from "@/models/userModel";
+import {
+  reqLoginModel,
+  reqRegisterModel,
+  reqDeleteUserModel,
+  reqFindAllUserModel,
+  reqFindOneUserModel,
+  reqUpdateUserModel,
+  reqUpdateParamsUserModel,
+  resVerifyModel,
+} from "@/models/userModel";
+import user from ".";
 
-export function addUserAction(
+export function getUsersAction(
   { commit }: { commit: any },
-  createdUser: UserModel
+  req: reqFindAllUserModel
 ) {
   commit(types.LOADING_USER, true);
 
-  return postUserAxios(createdUser)
-    .then(async ({ data }) => await commit(types.ADD_USER, data))
-    .catch((e: any) => console.log(e.message))
-    .finally(() => commit(types.LOADING_USER, false));
-}
-
-export function getUsersAction({ commit }: { commit: any }) {
-  commit(types.LOADING_USER, true);
-
-  return getUsersAxios()
+  return getUsersAxios(req)
     .then(({ data }) => commit(types.GET_USERS, data))
-    .catch((e: any) => console.log(e.message))
+    .catch((e: any) => commit(types.ERROR_USER, e))
     .finally(() => commit(types.LOADING_USER, false));
 }
 
-export function getUserAction({ commit }: { commit: any }, search: string) {
+export function getUserAction(
+  { commit }: { commit: any },
+  req: reqFindOneUserModel
+) {
   commit(types.LOADING_USER, true);
 
-  return getUserAxios(search)
+  return getUserAxios(req)
     .then(({ data }) => commit(types.GET_USERS, data))
-    .catch((e: any) => console.log(e.message))
-    .finally(() => commit(types.LOADING_USER, false));
-}
-
-export function removeUserAction({ commit }: { commit: any }, payload: string) {
-  commit(types.LOADING_USER, true);
-
-  return deleteUserAxios(payload)
-    .then(() => commit(types.REMOVE_USER, payload))
-    .catch((e: any) => console.log(e.message))
+    .catch((e: any) => commit(types.ERROR_USER, e))
     .finally(() => commit(types.LOADING_USER, false));
 }
 
 export function updateUserAction(
   { commit }: { commit: any },
-  updatedHero: UserModel
+  reqq: reqUpdateParamsUserModel
 ) {
-  commit(types.LOADING_USER, true);
-
-  return putUserAxios(updatedHero)
-    .then(() => commit(types.UPDATE_USER, updatedHero))
-    .catch((e: any) => console.log(e.message))
+  const userid = reqq.oldid;
+  const req: reqUpdateUserModel = {
+    userid: reqq.userid,
+    password: reqq.password,
+  };
+  return putUserAxios(req, userid)
+    .then(() => commit(types.UPDATE_USER))
+    .catch((e: any) => commit(types.ERROR_USER, e))
     .finally(() => commit(types.LOADING_USER, false));
 }
 
+export function removeUserAction(
+  { commit }: { commit: any },
+  req: reqDeleteUserModel
+) {
+  commit(types.LOADING_USER, true);
+
+  return deleteUserAxios(req)
+    .then(({ data }) => commit(types.REMOVE_USER, data))
+    .catch((e: any) => commit(types.ERROR_USER, e))
+    .finally(() => commit(types.LOADING_USER, false));
+}
+
+export function removeUsersAction({ commit }: { commit: any }) {
+  commit(types.LOADING_USER, true);
+
+  return deleteUsersAxios()
+    .then(({ data }) => commit(types.REMOVE_USERS, data))
+    .catch((e: any) => commit(types.ERROR_USER, e))
+    .finally(() => commit(types.LOADING_USER, false));
+}
 export function registerAction(
   { commit }: { commit: any },
   req: reqRegisterModel
 ) {
   commit(types.LOADING_USER, true);
 
-  return registerUserAxios(req).then(({ data }) =>
-    commit(types.GET_USERS, data)
-      .catch((e: any) => console.log(e.message))
-      .finally(() => commit(types.LOADING_USER, false))
-  );
+  return registerUserAxios(req)
+    .then(({ data }) => commit(types.REGISTER_USER, data))
+    .catch((e: any) => commit(types.ERROR_USER, e))
+    .finally(() => commit(types.LOADING_USER, false));
 }
 
 export function loginAction({ commit }: { commit: any }, req: reqLoginModel) {
   commit(types.LOADING_USER, true);
 
-  return loginUserAxios(req).then(({ data }) =>
-    commit(types.LOGIN_USER, data)
-      .catch((e: any) => console.log(e.message))
-      .finally(() => commit(types.LOADING_USER, false))
+  return loginUserAxios(req)
+    .then(({ data }) => commit(types.LOGIN_USER, data))
+    .catch((e: any) => commit(types.ERROR_USER, e))
+    .finally(() => commit(types.LOADING_USER, false));
+}
+
+export function errorSet({ commit }: { commit: any }, string: string) {
+  return commit(types.ERROR_SET, string);
+}
+
+export function logoutAction({ commit }: { commit: any }) {
+  commit(types.LOADING_USER, true);
+
+  return commit(types.LOGOUT_USER).finally(() =>
+    commit(types.LOADING_USER, false)
   );
+}
+
+export function verifyAction({ commit }: { commit: any }) {
+  commit(types.LOADING_USER, true);
+
+  return verifyUserAxios()
+    .then(({ data }) => commit(types.VERIFY_USER, data))
+    .catch((e: any) => commit(types.ERROR_USER, e))
+    .finally(() => commit(types.LOADING_USER, false));
 }

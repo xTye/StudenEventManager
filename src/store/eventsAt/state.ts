@@ -11,7 +11,7 @@ const state: EventsAtStateType = {
   eventsAt: {
     eventname: "",
     time: "",
-    date: new Date(),
+    date: "",
     description: "",
     location: "",
     category: "",

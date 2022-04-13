@@ -1,4 +1,4 @@
-import { api, endpoints } from "@/api/axios";
+import api, { endpoints } from "@/api/axios";
 import {
   reqCreatePublicEventModel,
   reqDeletePublicEventModel,

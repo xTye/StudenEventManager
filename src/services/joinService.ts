@@ -1,4 +1,4 @@
-import { api, endpoints } from "@/api/axios";
+import api, { endpoints } from "@/api/axios";
 import {
   reqCreateJoinModel,
   reqDeleteJoinModel,
@@ -18,9 +18,8 @@ export async function postJoinAxios(req: reqCreateJoinModel) {
 }
 
 export async function getJoinsAxios(req: reqFindAllJoinModel) {
-  return await api.get<resFindAllJoinModel[]>(
-    `${endpoints.joins}/${req.userid}`
-  );
+  const userid = req ? req.userid : "";
+  return await api.get<resFindAllJoinModel[]>(`${endpoints.joins}/${userid}`);
 }
 
 export async function getJoinAxios(req: reqFindOneJoinModel) {

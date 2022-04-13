@@ -1,7 +1,7 @@
 export type EventsAtModel = {
   eventname: string;
   time: string;
-  date: Date;
+  date: string;
   description: string;
   location: string;
   category: string;
@@ -12,7 +12,7 @@ export type EventsAtModel = {
 export type reqCreateEventsAtModel = {
   eventname: number;
   time: string;
-  date: Date;
+  date: string;
   description: string;
   location: string;
   category: string;
@@ -24,7 +24,7 @@ export type resCreateEventsAtModel = {
   eventid: number;
   eventname: string;
   time: string;
-  date: Date;
+  date: string;
   description: string;
   location: string;
   category: string;
@@ -40,7 +40,7 @@ export type resFindAllEventsAtModel = {
   eventid: number;
   eventname: string;
   time: string;
-  date: Date;
+  date: string;
   description: string;
   location: string;
   category: string;
@@ -56,7 +56,7 @@ export type resFindOneEventsAtModel = {
   eventid: number;
   eventname: string;
   time: string;
-  date: Date;
+  date: string;
   description: string;
   location: string;
   category: string;
@@ -68,7 +68,7 @@ export type reqUpdateEventsAtModel = {
   eventid: number;
   eventname: string;
   time: string;
-  date: Date;
+  date: string;
   description: string;
   location: string;
   category: string;

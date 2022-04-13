@@ -10,12 +10,16 @@ module.exports = {
     colors: {
       black: "#212121",
       white: "#ffffff",
+      grey: "#828487",
     },
     fontFamily: {
       sans: ["Calibri", "sans-serif"],
       serif: ["Calibri", "serif"],
     },
     extend: {
+      transitionProperty: {
+        but: 300,
+      },
       spacing: {
         10: "10px",
         15: "15px",

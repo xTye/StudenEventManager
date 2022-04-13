@@ -1,4 +1,4 @@
-import { api, endpoints } from "@/api/axios";
+import api, { endpoints } from "@/api/axios";
 import {
   reqCreateEventsAtModel,
   reqDeleteEventsAtModel,
@@ -18,8 +18,9 @@ export async function postEventsAtAxios(req: reqCreateEventsAtModel) {
 }
 
 export async function getEventsAtsAxios(req: reqFindAllEventsAtModel) {
+  const eventid = req ? req.eventid : "";
   return await api.get<resFindAllEventsAtModel[]>(
-    `${endpoints.eventsAt}/${req.eventid}`
+    `${endpoints.eventsAt}/${eventid}`
   );
 }
 

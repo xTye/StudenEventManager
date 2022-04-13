@@ -8,7 +8,9 @@
         <FormComponent
           field1="username"
           field2="password"
+          field3="secret"
           buttonName="register"
+          page="register"
           @handleSubmit="onSubmitUser($event)"
         />
       </div>
@@ -33,9 +35,9 @@ import { UserModel } from "../models/userModel";
     }),
   },
   methods: {
-    ...mapActions("userModule", ["addUserAction"]),
+    ...mapActions("userModule", ["registerAction"]),
     async onSubmitUser(userForm: UserModel) {
-      await this.addUserAction(userForm);
+      await this.registerAction(userForm);
     },
   },
 })

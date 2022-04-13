@@ -1,4 +1,4 @@
-import { api, endpoints } from "@/api/axios";
+import api, { endpoints } from "@/api/axios";
 import {
   reqCreateRsoEventModel,
   reqDeleteRsoEventModel,
@@ -18,8 +18,9 @@ export async function postRsoEventAxios(req: reqCreateRsoEventModel) {
 }
 
 export async function getRsoEventsAxios(req: reqFindAllRsoEventModel) {
+  const eventid = req ? req.eventid : "";
   return await api.get<resFindAllRsoEventModel[]>(
-    `${endpoints.rsoEvents}/${req.eventid}`
+    `${endpoints.rsoEvents}/${eventid}`
   );
 }
 

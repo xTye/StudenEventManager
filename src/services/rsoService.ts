@@ -1,4 +1,4 @@
-import { api, endpoints } from "@/api/axios";
+import api, { endpoints } from "@/api/axios";
 import {
   reqCreateRsoModel,
   reqDeleteRsoModel,
@@ -18,7 +18,8 @@ export async function postRsoAxios(req: reqCreateRsoModel) {
 }
 
 export async function getRsosAxios(req: reqFindAllRsoModel) {
-  return await api.get<resFindAllRsoModel[]>(`${endpoints.rsos}/${req.rsoid}`);
+  const rsoid = req ? req.rsoid : "";
+  return await api.get<resFindAllRsoModel[]>(`${endpoints.rsos}/${rsoid}`);
 }
 
 export async function getRsoAxios(req: reqFindOneRsoModel) {

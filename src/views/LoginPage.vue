@@ -9,6 +9,7 @@
           field1="username"
           field2="password"
           buttonName="login"
+          page="login"
           @handleSubmit="onSubmitUser($event)"
         />
       </div>

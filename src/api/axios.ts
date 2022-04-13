@@ -1,12 +1,20 @@
 import axios from "axios";
-import state from "@/store/user/state";
+import Cookies from "js-cookie";
 
-export const api = axios.create({
+const api = axios.create({
   baseURL:
     process.env.NODE_ENV === "production"
       ? "http://studenteventmanager.tech/api/"
       : "http://localhost:8081/api/",
-  headers: { Authorization: `Bearer ${state.user.accessToken}` },
+  headers: {
+    authorization: "",
+  },
+});
+
+api.interceptors.request.use(function (config) {
+  if (config.headers)
+    config.headers["authorization"] = "Bearer " + Cookies.get("accessToken");
+  return config;
 });
 
 export const endpoints = {
@@ -23,3 +31,5 @@ export const endpoints = {
   universitiesCreated: "universitiesCreated",
   users: "users",
 };
+
+export default api;

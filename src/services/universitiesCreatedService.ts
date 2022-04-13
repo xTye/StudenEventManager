@@ -1,4 +1,4 @@
-import { api, endpoints } from "@/api/axios";
+import api, { endpoints } from "@/api/axios";
 import {
   reqCreateUniversitiesCreatedModel,
   reqDeleteUniversitiesCreatedModel,
@@ -25,8 +25,9 @@ export async function postUniversitiesCreatedAxios(
 export async function getUniversitiesCreatedsAxios(
   req: reqFindAllUniversitiesCreatedModel
 ) {
+  const name = req ? req.name : "";
   return await api.get<resFindAllUniversitiesCreatedModel[]>(
-    `${endpoints.universitiesCreated}/${req.name}`
+    `${endpoints.universitiesCreated}/${name}`
   );
 }
 

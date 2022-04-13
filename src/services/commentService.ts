@@ -1,4 +1,4 @@
-import { api, endpoints } from "@/api/axios";
+import api, { endpoints } from "@/api/axios";
 import {
   reqCreateCommentModel,
   reqDeleteCommentModel,
@@ -18,8 +18,9 @@ export async function postCommentAxios(req: reqCreateCommentModel) {
 }
 
 export async function getCommentsAxios(req: reqFindAllCommentModel) {
+  const eventid = req ? req.eventid : "";
   return await api.get<resFindAllCommentModel[]>(
-    `${endpoints.comments}/${req.eventid}`
+    `${endpoints.comments}/${eventid}`
   );
 }
 

@@ -1,4 +1,4 @@
-import { api, endpoints } from "@/api/axios";
+import api, { endpoints } from "@/api/axios";
 import {
   reqCreateLocationModel,
   reqDeleteLocationModel,
@@ -18,8 +18,9 @@ export async function postLocationAxios(req: reqCreateLocationModel) {
 }
 
 export async function getLocationsAxios(req: reqFindAllLocationModel) {
+  const lname = req ? req.lname : "";
   return await api.get<resFindAllLocationModel[]>(
-    `${endpoints.locations}/${req.lname}`
+    `${endpoints.locations}/${lname}`
   );
 }
 

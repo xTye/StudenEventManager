@@ -1,19 +1,27 @@
+import { CommentModel } from "./commentModel";
+import { EventsAtModel } from "./eventsAtModel";
+
 export type PublicEventModel = {
   eventid: number;
   adminid: string;
   superadminid: string;
+  EventsAt: EventsAtModel;
+  Comments: CommentModel[];
 };
 
 export type reqCreatePublicEventModel = {
   eventid: number;
   adminid: string;
   superadminid: string;
+  EventsAt: EventsAtModel;
 };
 
 export type resCreatePublicEventModel = {
   eventid: number;
   adminid: string;
   superadminid: string;
+  EventsAt: EventsAtModel;
+  Comments: CommentModel[];
 };
 
 export type reqFindAllPublicEventModel = {
@@ -24,6 +32,8 @@ export type resFindAllPublicEventModel = {
   eventid: number;
   adminid: string;
   superadminid: string;
+  EventsAt: EventsAtModel;
+  Comments: CommentModel[];
 };
 
 export type reqFindOnePublicEventModel = {
@@ -34,6 +44,8 @@ export type resFindOnePublicEventModel = {
   eventid: number;
   adminid: string;
   superadminid: string;
+  EventsAt: EventsAtModel;
+  Comments: CommentModel[];
 };
 
 export type reqUpdatePublicEventModel = {
@@ -43,7 +55,11 @@ export type reqUpdatePublicEventModel = {
 };
 
 export type resUpdatePublicEventModel = {
-  message: string;
+  eventid: number;
+  adminid: string;
+  superadminid: string;
+  EventsAt: EventsAtModel;
+  Comments: CommentModel[];
 };
 
 export type reqDeletePublicEventModel = {

@@ -5,6 +5,7 @@ import {
   resFindAllPublicEventModel,
   reqUpdatePublicEventModel,
   reqDeletePublicEventModel,
+  resUpdatePublicEventModel,
 } from "@/models/publicEventModel";
 import { PublicEventStateType } from "./state";
 
@@ -36,7 +37,7 @@ const mutations = {
 
   [types.UPDATE_PUBLICEVENT](
     state: PublicEventStateType,
-    res: reqUpdatePublicEventModel
+    res: resUpdatePublicEventModel
   ) {
     state.publicEvent = res;
   },
@@ -49,6 +50,17 @@ const mutations = {
       eventid: -1,
       adminid: "",
       superadminid: "",
+      EventsAt: {
+        eventname: "",
+        time: "",
+        date: "",
+        description: "",
+        location: "",
+        category: "",
+        phonenumber: "",
+        emailaddress: "",
+      },
+      Comments: [],
     };
   },
 
@@ -58,6 +70,17 @@ const mutations = {
       eventid: -1,
       adminid: "",
       superadminid: "",
+      EventsAt: {
+        eventname: "",
+        time: "",
+        date: "",
+        description: "",
+        location: "",
+        category: "",
+        phonenumber: "",
+        emailaddress: "",
+      },
+      Comments: [],
     };
   },
 };

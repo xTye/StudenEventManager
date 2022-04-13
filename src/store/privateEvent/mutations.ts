@@ -5,6 +5,7 @@ import {
   resFindAllPrivateEventModel,
   reqUpdatePrivateEventModel,
   reqDeletePrivateEventModel,
+  resUpdatePrivateEventModel,
 } from "@/models/privateEventModel";
 import { PrivateEventStateType } from "./state";
 
@@ -36,7 +37,7 @@ const mutations = {
 
   [types.UPDATE_PRIVATEEVENT](
     state: PrivateEventStateType,
-    res: reqUpdatePrivateEventModel
+    res: resUpdatePrivateEventModel
   ) {
     state.privateEvent = res;
   },
@@ -49,6 +50,17 @@ const mutations = {
       eventid: -1,
       adminid: "",
       superadminid: "",
+      EventsAt: {
+        eventname: "",
+        time: "",
+        date: "",
+        description: "",
+        location: "",
+        category: "",
+        phonenumber: "",
+        emailaddress: "",
+      },
+      Comments: [],
     };
   },
 
@@ -58,6 +70,17 @@ const mutations = {
       eventid: -1,
       adminid: "",
       superadminid: "",
+      EventsAt: {
+        eventname: "",
+        time: "",
+        date: "",
+        description: "",
+        location: "",
+        category: "",
+        phonenumber: "",
+        emailaddress: "",
+      },
+      Comments: [],
     };
   },
 };

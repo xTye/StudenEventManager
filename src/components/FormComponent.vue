@@ -34,12 +34,21 @@
           />
           <ErrorMessage :name="field2" />
         </section>
+        <section v-if="page == 'register'" class="mt-25">
+          <label :for="field3">{{ capitalizeFirstLetter(field3) }}</label>
+          <Field
+            placeholder="📛"
+            autocomplete="off"
+            v-model="userForm.secret"
+            :name="field3"
+            as="input"
+            type="text"
+            class="text-black w-full"
+          />
+        </section>
       </section>
-      <div v-if="loading" class="">
-        <div
-          class="spinner-border w-24 h-24 color-purple bg-white"
-          role="status"
-        ></div>
+      <div class="text-center text-2xl text-red">
+        {{ error }}
       </div>
       <section>
         <button
@@ -58,7 +67,7 @@
 import { Field, Form as VeeForm, ErrorMessage } from "vee-validate";
 import { formValidation } from "../helpers/formValidation";
 import { defineComponent } from "vue";
-import { UserModel } from "../models/userModel";
+import { mapGetters } from "vuex";
 export default defineComponent({
   name: "FormComponent",
   emits: ["handleSubmit"],
@@ -76,17 +85,31 @@ export default defineComponent({
       type: String,
       required: true,
     },
+    field3: {
+      type: String,
+      required: false,
+    },
     buttonName: {
       type: String,
       required: true,
     },
+    page: {
+      type: String,
+      required: false,
+    },
   },
   data() {
-    const userForm: UserModel = { userid: "", accessToken: "" };
+    const userForm = { userid: "", password: "", secret: "" };
     return {
       formValidation,
       userForm,
     };
+  },
+  computed: {
+    ...mapGetters("userModule", {
+      loading: "loading",
+      error: "error",
+    }),
   },
   methods: {
     onSubmit() {

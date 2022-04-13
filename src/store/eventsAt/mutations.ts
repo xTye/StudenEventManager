@@ -45,7 +45,7 @@ const mutations = {
     state.eventsAt = {
       eventname: "",
       time: "",
-      date: new Date(),
+      date: "",
       description: "",
       location: "",
       category: "",
@@ -59,7 +59,7 @@ const mutations = {
     state.eventsAt = {
       eventname: "",
       time: "",
-      date: new Date(),
+      date: "",
       description: "",
       location: "",
       category: "",

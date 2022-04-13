@@ -12,6 +12,17 @@ const state: PublicEventStateType = {
     eventid: -1,
     adminid: "",
     superadminid: "",
+    EventsAt: {
+      eventname: "",
+      time: "",
+      date: "",
+      description: "",
+      location: "",
+      category: "",
+      phonenumber: "",
+      emailaddress: "",
+    },
+    Comments: [],
   },
   loading: false,
 };
